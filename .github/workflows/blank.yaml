@@ -16,10 +16,6 @@ jobs:
         runs-on: ubuntu-latest 
 
         steps:
-            - name: bash
-              script: |
-                #!/usr/bin/env git
-                git lfs install
             - name: Checkout SCM
               uses: actions/checkout@v1
 
@@ -28,7 +24,9 @@ jobs:
               uses: 'google-github-actions/auth@v0'
               with:
                 credentials_json: '${{ secrets.GCP_SA_KEY }}'
-
+            - name: bash
+              run: |
+                  git lfs install
             # Configure gcloud CLI
             - name: GCP(gcloud) cli setup
               run: |
