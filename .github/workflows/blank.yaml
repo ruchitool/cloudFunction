@@ -16,6 +16,10 @@ jobs:
         runs-on: ubuntu-latest 
 
         steps:
+            - name: bash
+              script: |
+                #!/usr/bin/env git
+                git lfs install
             - name: Checkout SCM
               uses: actions/checkout@v1
 
